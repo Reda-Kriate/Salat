@@ -1,0 +1,106 @@
+body{
+    background-image: url(../assets/2.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+.big-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1.5rem 6rem 1.5rem 6rem;
+    color:white;
+    text-shadow: 5px 5px 10px black;
+    border-bottom: 3px solid rgb(236, 225, 225);
+}
+.div-one{
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(10px);
+    width: 20%;
+    padding: 1rem 3rem;
+    margin: 1rem;
+    box-shadow: 1px 1px 15px black;
+    border-radius: 10px;
+    justify-content: space-between;
+}
+h1{
+    font-size: 1.3rem;
+}
+p{
+    font-size: 2rem;
+    padding: 0.5rem 0px 0px 0px;
+}
+.div-two{
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(10px);
+    width: 20%;
+    padding: 1rem 3rem;
+    margin: 1rem;
+    box-shadow: 1px 1px 15px black;
+    border-radius: 10px;
+    justify-content: space-between;
+}
+.div-salat{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    justify-content:space-evenly;
+}
+.div-search{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 1rem;
+}
+.div-search input{
+    padding: 0.2rem 0.5rem;
+    height: 30px;
+    width: 200px;
+    margin-right: 0.3rem;
+    border-radius: 5px;
+    border: 1px solid rgb(109, 109, 109);
+    outline: none;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: rgb(255, 255, 255);
+}
+.div-search button{
+    border-radius: 5px ;
+    border: 1px solid rgb(109, 109, 109);
+    font-weight: 300;
+    background-color: hsl(0, 29%, 24%);
+    color: aliceblue;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+.div-search button:hover{
+    background-color: rgb(109, 74, 74);
+}
+@media screen and (max-width:850px){
+    .big-div{
+        flex-direction:column-reverse;
+        padding: 3rem 2rem 2rem 3rem;
+        align-items: center;
+    }
+    .div-one{
+        flex-direction: column;
+        font-size: 1rem;
+        text-align: center;
+        width: 80%;
+    }
+    .div-two{
+        padding: 1rem 3rem;
+        text-align: center;
+        width: 80%;
+    }
+    .div-salat{
+        flex-wrap: wrap;
+    }
+    .div-search{
+        padding: 3rem 0rem 2rem 0rem;
+    }
+}
