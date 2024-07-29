@@ -92,6 +92,8 @@ p{
 .div-search button:active{
     background-color: #142357;
 }
+
+
 @media screen and (max-width:850px){
     .big-div{
         flex-direction:column-reverse;

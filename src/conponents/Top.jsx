@@ -3,6 +3,7 @@ import Salaat from "./Salat"
 import "./Tooop.css"
 import axios from 'axios'
 import moment from "moment"
+import Navv from './Nav'
 function Tooop(){
     // console.log(moment().format("YYYY:MM:Do / hh:mm"))
     //fetching data
@@ -96,7 +97,7 @@ const countTime = ()=>{
             prayer="Asr"
         }
         else if(momentNow.isAfter(moment(info["Asr"],"hh:mm")) && 
-        momentNow.isBeforeBefore(moment(info["Maghrib"],"hh:mm"))){
+        momentNow.isBefore(moment(info["Maghrib"],"hh:mm"))){
             console.log("the next prayer is : Maghrib")
             setNextPrayer("Maghrib")
             prayer="Maghrib"
@@ -133,10 +134,40 @@ const countTime = ()=>{
         setNextTimePrayer(NextTimePrayerVar)
         console.log(NextTimePrayerVar)
 }
+//hide nav
+const [changeHideNav,setChangeHideNav] = useState("big-div1-hide")
 
-
+const [classIconSwip, setClassIconSwip]= useState("fa-solid fa-down-long")
+const hideNav = ()=>{
+if(changeHideNav=="big-div1"){
+    setChangeHideNav("big-div1-hide")
+    setClassIconSwip("fa-solid fa-down-long")
+}
+else{
+    setChangeHideNav("big-div1")
+    setClassIconSwip("fa-solid fa-up-long")
+}
+}
+// dark light mode button
+const [classTheme,setClassTheme ]=useState("fa-solid fa-moon")
+const changeTheme = ()=>{
+    if(classTheme=="fa-solid fa-moon"){
+        setClassTheme("fa-solid fa-sun")
+    }else{
+        setClassTheme("fa-solid fa-moon")
+    }
+}
 
     return(<>
+    <Navv 
+        divNav={changeHideNav}
+        themeee={classTheme}  
+        clickFunc={changeTheme}  
+    />
+    <div className="div-button-nav">
+    <button id="button-nav" className="button-nav" onClick={hideNav}><i class={classIconSwip}></i></button>
+    </div>
+
     <div className="big-div">
         <div className="div-one">
             <h1>Le temps resté pour salat {nextPrayer} </h1>

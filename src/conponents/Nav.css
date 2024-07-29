@@ -1,0 +1,92 @@
+.big-div1{
+    background-color: #17255A;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1.5rem 3rem;
+    transition: 0.5s ease-in-out;
+}
+.big-div1-hide{
+    background-color: #17255A;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem 3rem;
+    z-index: 9999;
+    transition: 0.5s ease-in-out;
+    display: none;
+}
+.div-one1{
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+}
+.div-one1 button{
+    height: 40px;
+    width: 50px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+.div-two1 button{
+    height: 40px;
+    width: 60px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.2s ease-in-out;
+}
+.div-two1{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+p{
+    letter-spacing: 0;
+    color: aliceblue;
+    font-size: 1.5rem;
+}
+.div-button-nav{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    background-color: #F5E2C8;
+}
+#button-nav{
+    background-color: #17255A ;
+    color: white;
+    margin: 0;
+    border: none;
+    width: 60px;
+    height: 30px;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+@media screen and (max-width:850px){
+    .big-div1{
+        flex-direction: column;
+        align-items:flex-start;
+        justify-content: space-between;
+    }
+    .div-one1{
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 30px;
+    }
+    p{
+        font-size: 1.3rem;
+    }
+    .div-one1 button{
+        height: 30px;
+        width: 40px;
+        margin-left: 10px;
+    }
+    .div-two1 button{
+        height: 30px;
+        margin-left: 10px;
+    }
+}
