@@ -1,49 +1,56 @@
-body{
+/* body{
     background-image: url(../assets/2.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
-}
+} */
 .big-div{
+    background-color: #F5E2C8;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding: 1.5rem 6rem 1.5rem 6rem;
     color:white;
-    text-shadow: 5px 5px 10px black;
-    border-bottom: 3px solid rgb(236, 225, 225);
+    /* text-shadow: 5px 5px 10px black; */
+    border-bottom: 1.5px solid rgb(7, 7, 7);
 }
 .div-one{
+    background-color: #17255A;
     display: flex;
     flex-direction: column;
     backdrop-filter: blur(10px);
     width: 20%;
     padding: 1rem 3rem;
     margin: 1rem;
-    box-shadow: 1px 1px 15px black;
+    /* box-shadow: 1px 1px 15px black; */
     border-radius: 10px;
     justify-content: space-between;
 }
 h1{
-    font-size: 1.3rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
 }
 p{
     font-size: 2rem;
     padding: 0.5rem 0px 0px 0px;
+    letter-spacing: 2px;
 }
 .div-two{
+    background-color: #17255A;
     display: flex;
     flex-direction: column;
     backdrop-filter: blur(10px);
     width: 20%;
     padding: 1rem 3rem;
     margin: 1rem;
-    box-shadow: 1px 1px 15px black;
+    /* box-shadow: 1px 1px 15px black; */
     border-radius: 10px;
     justify-content: space-between;
 }
 .div-salat{
+    background-color: #A3BCF9;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -51,6 +58,7 @@ p{
     justify-content:space-evenly;
 }
 .div-search{
+    background-color: #A3BCF9;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -69,16 +77,20 @@ p{
     background-color: rgb(255, 255, 255);
 }
 .div-search button{
-    border-radius: 5px ;
-    border: 1px solid rgb(109, 109, 109);
+    border-radius: 3px ;
+    border: 1px solid rgb(0, 0, 0);
     font-weight: 300;
-    background-color: hsl(0, 29%, 24%);
+    letter-spacing: 1px;
+    background-color: #17255A;
     color: aliceblue;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
 }
 .div-search button:hover{
-    background-color: rgb(109, 74, 74);
+    background-color: #273a80;
+}
+.div-search button:active{
+    background-color: #142357;
 }
 @media screen and (max-width:850px){
     .big-div{
