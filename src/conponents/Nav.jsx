@@ -3,15 +3,15 @@ function Navv(props){
     return(<>
         <div className={props.divNav}>
             <div className="div-one1">
-                <p>Change Langage : </p>
-                <button>Ar</button>
-                <button>Fr</button>
-                <button>En</button>
+                <p>{props.lgText}</p>
+                <button onClick={props.arFunc}>Ar</button>
+                <button onClick={props.frFunc}>Fr</button>
+                <button onClick={props.enFunc}>En</button>
             </div>
 
             <div className="div-two1">
-                <p>Change Theme :</p>
-                <button onClick={props.clickFunc}><i class={props.themeee}></i></button>
+                <p>{props.thText}</p>
+                <button onClick={props.clickFunc}><i className={props.themeee}></i></button>
             </div>
         </div>
     </>)

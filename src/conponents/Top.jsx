@@ -4,6 +4,7 @@ import "./Tooop.css"
 import axios from 'axios'
 import moment from "moment"
 import Navv from './Nav'
+import { langage } from './LangData'
 function Tooop(){
     // console.log(moment().format("YYYY:MM:Do / hh:mm"))
     //fetching data
@@ -80,6 +81,7 @@ const clickChange = ()=>{
         setCity("SALE")
     }
 }
+const [nextPrayerArabic,setNextPrayerArabic]=useState();
 const countTime = ()=>{
     const momentNow = moment();
     // knowing what is the next prayer
@@ -88,29 +90,34 @@ const countTime = ()=>{
         momentNow.isBefore(moment(info["Dhuhr"],"hh:mm"))){
             console.log("the next prayer is : Dhuhr")
             setNextPrayer("Dhuhr")
+            setNextPrayerArabic("الظهر")
             prayer="Dhuhr"
         }
         else if(momentNow.isAfter(moment(info["Dhuhr"],"hh:mm")) && 
         momentNow.isBefore(moment(info["Asr"],"hh:mm"))){
             console.log("the next prayer is : Asr")
             setNextPrayer("Asr")
+            setNextPrayerArabic("العصر")
             prayer="Asr"
         }
         else if(momentNow.isAfter(moment(info["Asr"],"hh:mm")) && 
         momentNow.isBefore(moment(info["Maghrib"],"hh:mm"))){
             console.log("the next prayer is : Maghrib")
             setNextPrayer("Maghrib")
+            setNextPrayerArabic("المغرب")
             prayer="Maghrib"
         }
         else if(momentNow.isAfter(moment(info["Maghrib"],"hh:mm")) && 
         momentNow.isBefore(moment(info["Isha"],"hh:mm"))){
             console.log("the next prayer is : Isha")
             setNextPrayer("Isha")
+            setNextPrayerArabic("العشاء")
             prayer="Isha"
         }
         else{
             console.log("the next prayer is : Fajr")
             setNextPrayer("Fajr")
+            setNextPrayerArabic("الفجر")
             prayer="Fajr"
         }
         //knowing the next time prayer
@@ -157,20 +164,93 @@ const changeTheme = ()=>{
         setClassTheme("fa-solid fa-moon")
     }
 }
+// change langage 
+const [tempr,setTempr]=useState(langage[2].tempsReste)
+const [search,setSearch]=useState(langage[2].search)
+const [chTh,setChTh]=useState(langage[2].changeTh)
+const [chLg,setChLg]=useState(langage[2].changeLang)
+const [placeH,setPlaceH]=useState(langage[2].placeHolder)
+const [mood,setMood]=useState(false);
+const changeLangage = (i)=>{
+    setTempr(langage[i].tempsReste);
+    setSearch(langage[i].search)
+    setPlaceH(langage[i].placeHolder)
+    setChTh(langage[i].changeTh)
+    setChLg(langage[i].changeLang)
+}
+const changemoodTrue = ()=>{
+    setMood(true);
+    setFajr(langage[0].Fajr);
+    setDhuhr(langage[0].Dhuhr);
+    setAsr(langage[0].Asr);
+    setMaghrib(langage[0].Maghrib);
+    setIsha(langage[0].Isha);
+    
+}
+const changemoodFalse = ()=>{
+    setMood(false);
+    setFajr(langage[1].Fajr);
+    setDhuhr(langage[1].Dhuhr);
+    setAsr(langage[1].Asr);
+    setMaghrib(langage[1].Maghrib);
+    setIsha(langage[1].Isha);
+}
+const [fajr , setFajr] = useState(langage[1].Fajr)
+const [dhuhr , setDhuhr] = useState(langage[1].Dhuhr)
+const [asr , setAsr] = useState(langage[1].Asr)
+const [maghrib , setMaghrib] = useState(langage[1].Maghrib)
+const [isha , setIsha] = useState(langage[1].Isha)
+const displayNextPrayer = ()=>{
+    if(mood){
+        return (nextPrayerArabic)
+    }else{
+        return(nextPrayer)
+    }
+}
+// const displaySalawat = ()=>{
+//     if(mood){
+//         setFajr(langage[0].Fajr);
+//         setDhuhr(langage[0].Dhuhr);
+//         setAsr(langage[0].Asr);
+//         setMaghrib(langage[0].Maghrib);
+//         setIsha(langage[0].Isha);
+//     }
+//     else{
+//         setFajr(langage[1].Fajr);
+//         setDhuhr(langage[1].Dhuhr);
+//         setAsr(langage[1].Asr);
+//         setMaghrib(langage[1].Maghrib);
+//         setIsha(langage[1].Isha);
+//     }
+// }
 
     return(<>
     <Navv 
+        thText={chTh}
+        lgText={chLg}
         divNav={changeHideNav}
         themeee={classTheme}  
         clickFunc={changeTheme}  
+        arFunc = {()=>{changeLangage(0)
+                        changemoodTrue()
+                        // displaySalawat()
+        }}
+        frFunc = {()=>{changeLangage(1)
+                        changemoodFalse()
+                        // displaySalawat()
+        }}
+        enFunc = {()=>{changeLangage(2)
+                    changemoodFalse()
+                        // displaySalawat()
+        }}
     />
     <div className="div-button-nav">
-    <button id="button-nav" className="button-nav" onClick={hideNav}><i class={classIconSwip}></i></button>
+    <button id="button-nav" className="button-nav" onClick={hideNav}><i className={classIconSwip}></i></button>
     </div>
 
     <div className="big-div">
         <div className="div-one">
-            <h1>Le temps resté pour salat {nextPrayer} </h1>
+            <h1>{tempr}{displayNextPrayer()} </h1>
             <p>{`${nextTimePrayer}`}</p>
         </div>
         <div className="div-two">
@@ -180,33 +260,33 @@ const changeTheme = ()=>{
     </div>
     <div className="sec-part">
     <div className="div-search">
-        <input type="text" value={inputVal} onChange={handleChange}/>
-        <button onClick={clickChange}>Search</button>
+        <input placeholder={placeH} type="text" value={inputVal} onChange={handleChange}/>
+        <button onClick={clickChange}>{search}</button>
     </div>
     <div className="div-salat">
     <Salaat
     image="../src/assets/10.jpg"
-    adan="Fajr"
+    adan={fajr}
     temp={info.Fajr}
     />
     <Salaat
         image="../src/assets/20.jpg"
-        adan="Dhuhr"
+        adan={dhuhr}
         temp={info.Dhuhr}
     />
     <Salaat
         image="../src/assets/30.jpg"
-        adan="Asr"
+        adan={asr}
         temp={info.Asr}
     />
     <Salaat
         image="../src/assets/40.jpg"
-        adan="Maghrib"
+        adan={maghrib}
         temp={info.Maghrib}
     />
     <Salaat
         image="../src/assets/50.jpg"
-        adan="Isha"
+        adan={isha}
         temp={info.Isha}
     />
     </div>

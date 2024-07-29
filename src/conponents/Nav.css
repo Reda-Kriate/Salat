@@ -4,34 +4,33 @@
     flex-direction: row;
     justify-content: space-between;
     padding: 1.5rem 3rem;
-    transition: 0.5s ease-in-out;
+    transition: 0.3s ease-in-out;
 }
 .big-div1-hide{
     background-color: #17255A;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 1rem 3rem;
     z-index: 9999;
-    transition: 0.5s ease-in-out;
-    display: none;
+    height: 0px;
+    transition: 0.3s ease-in-out;
+    opacity: 0;
 }
 .div-one1{
     display: flex;
     flex-direction: row;
-
     align-items: center;
 }
 .div-one1 button{
-    height: 40px;
-    width: 50px;
+    height: 30px;
+    width: 40px;
     margin-left: 10px;
     cursor: pointer;
     font-size: 1rem;
 }
 .div-two1 button{
-    height: 40px;
-    width: 60px;
+    height: 30px;
+    width: 40px;
     margin-left: 10px;
     cursor: pointer;
     font-size: 1rem;
@@ -45,7 +44,7 @@
 p{
     letter-spacing: 0;
     color: aliceblue;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 .div-button-nav{
     display: flex;
@@ -61,10 +60,10 @@ p{
     border: none;
     width: 60px;
     height: 30px;
-    border-bottom-left-radius: 7px;
-    border-bottom-right-radius: 7px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 0.8rem;
 }
 @media screen and (max-width:850px){
     .big-div1{
