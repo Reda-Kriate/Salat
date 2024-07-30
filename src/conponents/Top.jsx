@@ -171,6 +171,8 @@ const [chTh,setChTh]=useState(langage[2].changeTh)
 const [chLg,setChLg]=useState(langage[2].changeLang)
 const [placeH,setPlaceH]=useState(langage[2].placeHolder)
 const [mood,setMood]=useState(false);
+const [styleDiv1,setStyleDiv1]=useState("div-one1");
+const [styleDiv2,setStyleDiv2]=useState("div-two1");
 const changeLangage = (i)=>{
     setTempr(langage[i].tempsReste);
     setSearch(langage[i].search)
@@ -185,7 +187,8 @@ const changemoodTrue = ()=>{
     setAsr(langage[0].Asr);
     setMaghrib(langage[0].Maghrib);
     setIsha(langage[0].Isha);
-    
+    setStyleDiv1("div-one1-arabic");
+    setStyleDiv2("div-two1-arabic");
 }
 const changemoodFalse = ()=>{
     setMood(false);
@@ -194,6 +197,8 @@ const changemoodFalse = ()=>{
     setAsr(langage[1].Asr);
     setMaghrib(langage[1].Maghrib);
     setIsha(langage[1].Isha);
+    setStyleDiv1("div-one1");
+    setStyleDiv2("div-two1");
 }
 const [fajr , setFajr] = useState(langage[1].Fajr)
 const [dhuhr , setDhuhr] = useState(langage[1].Dhuhr)
@@ -207,23 +212,6 @@ const displayNextPrayer = ()=>{
         return(nextPrayer)
     }
 }
-// const displaySalawat = ()=>{
-//     if(mood){
-//         setFajr(langage[0].Fajr);
-//         setDhuhr(langage[0].Dhuhr);
-//         setAsr(langage[0].Asr);
-//         setMaghrib(langage[0].Maghrib);
-//         setIsha(langage[0].Isha);
-//     }
-//     else{
-//         setFajr(langage[1].Fajr);
-//         setDhuhr(langage[1].Dhuhr);
-//         setAsr(langage[1].Asr);
-//         setMaghrib(langage[1].Maghrib);
-//         setIsha(langage[1].Isha);
-//     }
-// }
-
     return(<>
     <Navv 
         thText={chTh}
@@ -233,16 +221,15 @@ const displayNextPrayer = ()=>{
         clickFunc={changeTheme}  
         arFunc = {()=>{changeLangage(0)
                         changemoodTrue()
-                        // displaySalawat()
         }}
         frFunc = {()=>{changeLangage(1)
                         changemoodFalse()
-                        // displaySalawat()
         }}
         enFunc = {()=>{changeLangage(2)
                     changemoodFalse()
-                        // displaySalawat()
         }}
+        styleDiv1={styleDiv1}
+        styleDiv2={styleDiv2}
     />
     <div className="div-button-nav">
     <button id="button-nav" className="button-nav" onClick={hideNav}><i className={classIconSwip}></i></button>
